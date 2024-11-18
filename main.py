@@ -40,6 +40,11 @@ def main():
             if triangle.collision(obj):
                 print("Game over!")
                 return
+            for shot in bullet:
+                if obj.collision(shot):
+                    shot.kill()
+                    obj.split()
+
         pygame.display.flip()
         dt = pygame.time.Clock().tick(60) / 1000
     
